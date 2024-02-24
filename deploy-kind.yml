@@ -1,0 +1,23 @@
+---
+- name: Install Kind Cluster
+  hosts: localhost
+  vars:
+    orc8r_domain: "magma.local"
+    deploy_on_kind: true
+
+  roles:
+    - role: shubhamtatvamasi.magma.prerequisites
+    - role: install
+    - role: create
+    # - role: load
+    - role: metallb
+    # - role: shubhamtatvamasi.magma.nginx
+    - role: postgresql
+    - role: secrets
+    - role: orc8r
+    - role: haproxy
+    - role: elasticsearch
+    - role: fluentd
+    # - role: ingress
+    - role: dns
+    # - role: delete
